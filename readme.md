@@ -19,7 +19,7 @@ IT Admins and Change Management teams can use the Nudge App to prompt users with
 
 * ### Script-based Teams Nudge App
 
-    [This document](https://github.com/luishdemetrio/copilot_chat_promotion/blob/main/instructions/PowerShell%20Promoting%20Copilot%20Chat%20on%20Teams.pdf) provides guidance on deploying a PowerShell script that sends Adaptive Card messages to users in Microsoft Teams. The script uses the Microsoft Graph API for communication, and it employs parallel processing to work efficiently while reducing file input and output operations. 
+    [This document](https://github.com/luishdemetrio/copilot_chat_promotion/blob/main/instructions/Copilot%20Nudge%20App%20Documentation.pdf) provides guidance on deploying a PowerShell script that sends Adaptive Card messages to users in Microsoft Teams. The script uses the Microsoft Graph API for communication, and it employs parallel processing to work efficiently while reducing file input and output operations. 
 
     The Adaptive Card, which is central to the script, contains six buttons. Each button corresponds to a specific prompt. When a user clicks on a button, the card triggers an action that opens a new browser tab. The chosen prompt is automatically copied into a dialog box in the browser. 
 
@@ -28,11 +28,9 @@ IT Admins and Change Management teams can use the Nudge App to prompt users with
     More details at: [PowerShell Instructions](https://github.com/luishdemetrio/copilot_chat_promotion/blob/main/instructions/PowerShell%20Promoting%20Copilot%20Chat%20on%20Teams.pdf)
 
 
-* ### Low-touch ACM Flow
+* ### Agent-based Nudge App (automated)
 
-    [This solution](https://github.com/luishdemetrio/copilot_chat_promotion/blob/main/instructions/Power%20Automate%20Promoting%20Copilot%20Chat%20on%20Outlook.pdf) enables IT Admins to send an email message to users with the Copilot Chat campaign via Power Automate. This integration simplifies communication workflows and enhances user engagement with the campaign.
-    
-    More details at: [Power Automate Instructions](https://github.com/luishdemetrio/copilot_chat_promotion/blob/main/instructions/Power%20Automate%20Promoting%20Copilot%20Chat%20on%20Outlook.pdf)
+    Comming soon
 
 ### 🤝 Contributing
 
