@@ -1,0 +1,106 @@
+{
+    "type": "AdaptiveCard",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.6",
+    "body": [
+        {
+            "type": "ColumnSet",
+            "columns": [
+                {
+                    "type": "Column",
+                    "width": "auto",
+                    "items": [
+                        {
+                            "type": "Image",
+                            "url": "https://uhf.microsoft.com/images/microsoft/RE1Mu3b.png",
+                            "size": "Medium",
+                            "horizontalAlignment": "Left"
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "width": "stretch"
+                },
+                {
+                    "type": "Column",
+                    "width": "auto",
+                    "items": [
+                        {
+                           "type": "Image",
+                            "url": "https://store-images.s-microsoft.com/image/apps.21661.9007199267161390.afb6b8cd-d194-4a99-b633-03cd80118a21.e9a094be-ee73-4e19-8cdf-49a27b0974ed?h=115",
+                            "size": "Small",
+                            "horizontalAlignment": "Right",
+                            "height": "45px"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+        "type": "ColumnSet",
+        "columns": [
+            {
+            "type": "Column",
+            "width": "auto",
+            "items": [
+                {
+                "type": "Image",
+                "url": "https://adoption.microsoft.com/wp-content/uploads/2025/06/icon-researcher-agent.png",
+                "size": "Small",
+                "height": "35px",
+                "horizontalAlignment": "Center"
+                }
+            ]
+            },
+            {
+            "type": "Column",
+            "width": "stretch",
+            "items": [
+                {
+                "type": "TextBlock",
+                "text": "   Try Researcher in Copilot!",
+                "wrap": true,
+                "weight": "Bolder",
+                "size": "Large",
+                "spacing": "Medium"
+                }
+            ],
+            "verticalContentAlignment": "Center"
+            }
+        ]
+        },
+        {
+            "type": "TextBlock",
+            "text": "\n\n**Need quick insights on any topic?** Use the Researcher agent to explore trends, summarize findings, and get strategic next steps — powered by GPT-5.",
+            "wrap": true,
+            "spacing": "MEdium"
+        },
+        {
+            "type": "TextBlock",
+            "text": "💡 **Prompt:**\n“I’ve got my quarterly business review coming up with [company name]. Create a comprehensive report about all the work we’ve done with them so far. Include the documents, meetings, emails and any external news that’s relevant to the work we’ve been doing for them”\n\n",
+            "wrap": true,
+            "spacing": "Medium",
+            "fontType": "Default"
+        },
+        {
+            "type": "TextBlock",
+            "text": " **🎯Why use the Researcher agent?**\n- Built for deep dives and smart synthesis\n- Powered by **GPT-5** for sharper context and faster insight generation",
+            "wrap": true,
+            "spacing": "Medium"
+        },
+        {
+            "type": "TextBlock",
+            "text": "\u2728 **How to find it:\u2014**\n Open Copilot. Click on Tools in the prompt window and select ***Researcher***. ",
+            "wrap": true,
+            "spacing": "Medium"
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "🔍 Click to find your assistant for deep research at work!",
+            "url": "https://m365.cloud.microsoft/chat/?titleId=P_552e6eda-fc18-7fb9-0ef6-1bf2de3393e4"
+        }
+    ]
+}

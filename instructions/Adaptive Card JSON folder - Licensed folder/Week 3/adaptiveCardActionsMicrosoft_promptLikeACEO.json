@@ -1,0 +1,81 @@
+{
+    "type": "AdaptiveCard",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.6",
+    "body": [
+        {
+            "type": "ColumnSet",
+            "columns": [
+                {
+                    "type": "Column",
+                    "width": "auto",
+                    "items": [
+                        {
+                            "type": "Image",
+                            "url": "https://uhf.microsoft.com/images/microsoft/RE1Mu3b.png",
+                            "size": "Medium",
+                            "horizontalAlignment": "Left"
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "width": "stretch"
+                },
+                {
+                    "type": "Column",
+                    "width": "auto",
+                    "items": [
+                        {
+                            "type": "Image",
+                            "url": "https://store-images.s-microsoft.com/image/apps.21661.9007199267161390.afb6b8cd-d194-4a99-b633-03cd80118a21.e9a094be-ee73-4e19-8cdf-49a27b0974ed?h=115",
+                            "size": "Small",
+                            "horizontalAlignment": "Right",
+                            "height": "45px"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "TextBlock",
+            "text": "\uD83D\uDCCC Prompt Like a CEO !\n\n ",
+            "wrap": true,
+            "weight": "Bolder",
+            "size": "Large",
+            "spacing": "Medium"
+        },
+        {
+            "type": "TextBlock",
+            "text": "\n\nWant to experience the leap from GPT-4 to GPT-5? — just click the “**Try GPT-5**” button on the top right and run one of the prompts used by **Satya Nadella** to see the difference!",
+            "wrap": true,
+            "spacing": "MEdium"
+        },
+        {
+            "type": "TextBlock",
+            "text": "\uD83D\uDE80 **Prompt:**\n“Review [/select email] + prep me for the next meeting in [/series], based on past manager and team discussions.”\n\n",
+            "wrap": true,
+            "spacing": "Medium",
+            "fontType": "Default"
+        },
+        {
+            "type": "TextBlock",
+            "text": "\u2728 **What it does:**\n- GPT-4V gives you a basic recap\n- GPT-5 connects emails, meetings, and team insights to prep you like a pro",
+            "wrap": true,
+            "spacing": "Medium"
+        },
+        {
+            "type": "TextBlock",
+            "text": "⚡ **Why it works\u2014**\n   Less digging. More clarity. Faster decisions.",
+            "wrap": true,
+            "spacing": "Medium"
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "🪄 Lead like a CEO — see the upgrade in action!",
+            "url": "https://m365.cloud.microsoft"
+        }
+    ]
+}

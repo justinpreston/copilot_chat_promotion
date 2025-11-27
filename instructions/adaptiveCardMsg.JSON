@@ -1,0 +1,87 @@
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.5",
+    "body": [
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "text": "Discover the power of M365 Copilot Chat!",
+                    "wrap": true,
+                    "size": "Medium",
+                    "weight": "Bolder",
+                    "color": "Accent"
+                },
+                {
+                    "type": "TextBlock",
+                    "text": "Microsoft 365 Copilot Chat is an approved and secure AI chat tool built specifically for work. It uses the latest AI models and data from the web to answer your questions, generate content and ideas, and find information.  With Copilot Chat you can: \n* Upload files to get responses based on information from your work documents, presentations, etc. \n* Generate images and data visualizations. \n* Refine and collaborate on chat responses using Copilot Pages.",
+                    "wrap": true,
+                    "spacing": "Small",
+                    "weight": "Default"
+                }
+            ]
+        },
+        {
+            "type": "Container",
+            "separator": true,
+            "spacing": "Medium",
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "text": "Here are some prompts you can try in M365 Copilot Chat. Copy and use them in Copilot Chat by clicking on Try Now",
+                    "wrap": true,
+                    "size": "Medium",
+                    "weight": "Bolder"
+                },
+                {
+                    "type": "TextBlock",
+                    "text": "**Top 5 Prompts to try:**",
+                    "wrap": true,
+                    "weight": "Bolder",
+                    "spacing": "Medium"
+                },
+                
+                
+                {
+                    "type": "ColumnSet",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "width": "auto",
+                            "items": [
+                                {
+                                    "type": "Image",
+                                    "url": "https://support.content.office.net/en-us/media/af6441ee-2e11-4ca8-9f1d-a1a3ae557dfc.png",
+                                    "size": "Small"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Column",
+                            "width": "stretch",
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "- How does [product] compare to [competitor product]? Provide the comparison in a table.?\n- Draft an email to [name] that informs them that [Project X] is delayed two weeks. Make it short and casual in tone.\n- Translate the following text into French: [text].\n- Explain how a large language model works in simple terms.\n- Write an outline for a creative brief for a video project.",
+                                    "wrap": true,
+                                    "spacing": "Small"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "Try Now",
+            "url": "https://teams.microsoft.com/l/entity/b5abf2ae-c16b-4310-8f8a-d3bcdb52f162/conversations?tenantId=$tenantId",
+            "style": "positive"
+        }
+    ],
+    "verticalContentAlignment": "Center"
+}

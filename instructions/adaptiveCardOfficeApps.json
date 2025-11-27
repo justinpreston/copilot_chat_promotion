@@ -1,0 +1,267 @@
+{
+  "type": "AdaptiveCard",
+  "$schema": "https://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.6",
+  "body": [
+    {
+      "type": "ColumnSet",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "auto",
+          "items": [
+            {
+              "type": "Image",
+              "url": "https://uhf.microsoft.com/images/microsoft/RE1Mu3b.png",
+              "size": "Medium",
+              "altText": "Microsoft Logo"
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch"
+        },
+        {
+          "type": "Column",
+          "width": "auto",
+          "items": [
+            {
+              "type": "Image",
+              "url": "https://store-images.s-microsoft.com/image/apps.21661.9007199267161390.afb6b8cd-d194-4a99-b633-03cd80118a21.e9a094be-ee73-4e19-8cdf-49a27b0974ed?h=115",
+              "size": "Small",
+              "height": "45px",
+              "altText": "Office Icon"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "**Copilot in Word, Excel & PowerPoint**",
+      "weight": "Bolder",
+      "size": "Large",
+      "wrap": true,
+      "spacing": "Medium"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Work smarter in your favorite Office apps—draft, analyze, design, and present with AI-powered assistance.",
+      "wrap": true,
+      "spacing": "Small"
+    },
+    {
+      "type": "Container",
+      "separator": true,
+      "items": [
+        {
+          "type": "TextBlock",
+          "text": "**How to Access Copilot**",
+          "weight": "Bolder",
+          "spacing": "Medium",
+          "wrap": true
+        },
+        {
+          "type": "TextBlock",
+          "text": "1. Open **Word**, **Excel**, or **PowerPoint**\n2. Look for the **Copilot** icon in the ribbon\n3. Start typing your prompt",
+          "wrap": true,
+          "spacing": "Small"
+        }
+      ]
+    },
+
+    {
+      "type": "Container",
+      "separator": true,
+      "items": [
+        {
+          "type": "ColumnSet",
+          "columns": [
+            {
+              "type": "Column",
+              "width": "auto",
+              "items": [
+                {
+                  "type": "Image",
+                  "url": "https://static2.sharepointonline.com/files/fabric/assets/brand-icons/product/png/word_48x1.png",
+                  "size": "Small",
+                  "altText": "Word Icon"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "width": "stretch",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "text": "**Word Use Cases**",
+                  "weight": "Bolder",
+                  "wrap": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "TextBlock",
+          "text": "- Draft reports, proposals, summaries\n- Rewrite tone: formal, persuasive, concise\n- Generate executive summaries\n- Insert citations & references automatically",
+          "wrap": true,
+          "spacing": "Small"
+        },
+        {
+          "type": "ActionSet",
+          "actions": [
+            {
+              "type": "Action.ToggleVisibility",
+              "title": "Show Advanced Prompts",
+              "targetElements": [
+                "wordAdvanced"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "TextBlock",
+          "id": "wordAdvanced",
+          "isVisible": false,
+          "text": "Advanced Prompts:\n- Rewrite a 5-page report into a 1-page executive summary\n- Add APA-style citations for all references\n- Convert these meeting notes into a formal proposal",
+          "wrap": true,
+          "spacing": "Small"
+        }
+      ]
+    },
+
+    {
+      "type": "Container",
+      "separator": true,
+      "items": [
+        {
+          "type": "ColumnSet",
+          "columns": [
+            {
+              "type": "Column",
+              "width": "auto",
+              "items": [
+                {
+                  "type": "Image",
+                  "url": "https://static2.sharepointonline.com/files/fabric/assets/brand-icons/product/png/excel_48x1.png",
+                  "size": "Small",
+                  "altText": "Excel Icon"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "width": "stretch",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "text": "**Excel Use Cases**",
+                  "weight": "Bolder",
+                  "wrap": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "TextBlock",
+          "text": "- Clean messy data: remove duplicates, fix formats\n- Explain or fix formulas\n- Build pivot tables & charts instantly\n- Forecast trends & detect anomalies",
+          "wrap": true,
+          "spacing": "Small"
+        },
+        {
+          "type": "ActionSet",
+          "actions": [
+            {
+              "type": "Action.ToggleVisibility",
+              "title": "Show Advanced Prompts",
+              "targetElements": [
+                "excelAdvanced"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "TextBlock",
+          "id": "excelAdvanced",
+          "isVisible": false,
+          "text": "Advanced Prompts:\n- Explain formula: =IFERROR(XLOOKUP(A2, Table1[SKU], Table1[Price]), 0)\n- Create a 12-month sales forecast and highlight anomalies\n- Build a sensitivity analysis for price ±10% and show impact on margin",
+          "wrap": true,
+          "spacing": "Small"
+        }
+      ]
+    },
+
+    {
+      "type": "Container",
+      "separator": true,
+      "items": [
+        {
+          "type": "ColumnSet",
+          "columns": [
+            {
+              "type": "Column",
+              "width": "auto",
+              "items": [
+                {
+                  "type": "Image",
+                  "url": "https://static2.sharepointonline.com/files/fabric/assets/brand-icons/product/png/powerpoint_48x1.png",
+                  "size": "Small",
+                  "altText": "PowerPoint Icon"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "width": "stretch",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "text": "**PowerPoint Use Cases**",
+                  "weight": "Bolder",
+                  "wrap": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "TextBlock",
+          "text": "- Create decks from Word docs or meeting notes\n- Auto-generate slide outlines & speaker notes\n- Apply brand templates & design suggestions\n- Add visuals, icons, timelines automatically",
+          "wrap": true,
+          "spacing": "Small"
+        },
+        {
+          "type": "ActionSet",
+          "actions": [
+            {
+              "type": "Action.ToggleVisibility",
+              "title": "Show Advanced Prompts",
+              "targetElements": [
+                "pptAdvanced"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "TextBlock",
+          "id": "pptAdvanced",
+          "isVisible": false,
+          "text": "Advanced Prompts:\n- Build a 6-slide executive summary deck from this document\n- Redesign the deck for brand compliance & readability\n- Add speaker notes for a non-technical audience\n- Create a timeline slide with milestones & icons",
+          "wrap": true,
+          "spacing": "Small"
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.OpenUrl",
+      "title": "Learn More About Copilot",
+      "url": "https://www.microsoft.com/microsoft-365/copilot"
+    }
+  ]
+}
