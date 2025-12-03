@@ -17,7 +17,7 @@ IT Admins and Change Management teams can use the Nudge App to prompt users with
 ---
 ## Available Options
 
-* ### Script-based Teams Nudge App
+* ### Script-based Teams Nudge App (PowerShell)
 
     [This document](https://github.com/luishdemetrio/copilot_chat_promotion/blob/main/instructions/Copilot%20Nudge%20App%20Documentation.pdf) provides guidance on deploying a PowerShell script that sends Adaptive Card messages to users in Microsoft Teams. The script uses the Microsoft Graph API for communication, and it employs parallel processing to work efficiently while reducing file input and output operations. 
 
@@ -27,10 +27,28 @@ IT Admins and Change Management teams can use the Nudge App to prompt users with
 
     More details at: [PowerShell Instructions](https://github.com/luishdemetrio/copilot_chat_promotion/blob/main/instructions/PowerShell%20Promoting%20Copilot%20Chat%20on%20Teams.pdf)
 
+* ### Power Automate Cloud Flow (Low-Code)
+
+    A **no-code/low-code alternative** for organizations that prefer Power Automate over PowerShell scripts. This approach provides:
+
+    - **Easy import** - Single zip file to import into Power Automate
+    - **7 pre-built Adaptive Cards** - 4 for Licensed users, 3 for Non-Licensed users
+    - **Manual trigger** - Run on-demand with input parameters
+    - **Microsoft Graph API** - Same underlying technology as the PowerShell approach
+
+    **Quick Start:**
+    1. Download `CopilotChatPromotion_1_0_0.zip` from the [`power-automate-solution/`](power-automate-solution/) folder
+    2. Import into Power Automate via **My flows** → **Import** → **Import Package (Legacy)**
+    3. Create an Azure AD App Registration with Graph API permissions
+    4. Run the flow and enter your parameters
+
+    **Requirements:** Power Automate Premium license (for HTTP connector)
+
+    More details at: [Power Automate Deployment Guide](power-automate-solution/docs/Deployment-Guide.md)
 
 * ### Agent-based Nudge App (automated)
 
-    Comming soon
+    Coming soon
 
 ### 🤝 Contributing
 
