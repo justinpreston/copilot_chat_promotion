@@ -2,60 +2,71 @@
 
 This folder contains a Power Automate cloud flow solution for sending promotional Adaptive Cards to Microsoft Teams users as part of a Copilot Chat adoption campaign.
 
+## 🚀 Quick Start
+
+1. **Download** `CopilotChatPromotion_1_0_0.zip` from this folder (or [GitHub Releases](https://github.com/luishdemetrio/copilot_chat_promotion/releases))
+
+2. **Import** into Power Automate:
+   - Go to [make.powerautomate.com](https://make.powerautomate.com)
+   - Click **My flows** → **Import** → **Import Package (Legacy)**
+   - Upload the zip file and click **Import**
+
+3. **Create Azure AD App Registration** with Graph permissions (see [Deployment Guide](docs/Deployment-Guide.md))
+
+4. **Run the flow** with your parameters and send cards to Teams users!
+
 ## Solution Overview
 
 Instead of running PowerShell scripts manually, this solution provides:
+
 - **Low-code automation** via Power Automate
-- **SharePoint-based user management** (no Excel files)
-- **Built-in scheduling and retry logic**
-- **Exportable solution package** for easy customer deployment
+- **7 pre-built Adaptive Cards** for Licensed and Non-Licensed users
+- **OAuth authentication** to Microsoft Graph API
+- **Importable package** for easy deployment
 
 ## Folder Structure
 
-```
+```text
 power-automate-solution/
+├── CopilotChatPromotion_1_0_0.zip     # 📦 Import this into Power Automate
 ├── README.md                          # This file
 ├── flows/
-│   └── SendCopilotPromotionCards.json # Main flow definition
+│   └── SendCopilotPromotionCards.json # Flow definition (reference)
 ├── sharepoint/
-│   └── CopilotPromotionUsers-ListSchema.json # SharePoint list schema
+│   └── CopilotPromotionUsers-ListSchema.json # SharePoint list schema (optional)
 ├── config/
-│   └── environment-variables.json     # Configuration variables
-├── solution/
-│   └── solution.xml                   # Power Platform solution manifest
+│   └── environment-variables.json     # Configuration reference
 └── docs/
     └── Deployment-Guide.md            # Step-by-step setup instructions
 ```
 
-## Quick Start
+## Flow Parameters
 
-1. **Read the deployment guide**: [docs/Deployment-Guide.md](docs/Deployment-Guide.md)
+When you run the flow, you'll be prompted for:
 
-2. **Create Azure AD App Registration** with Graph permissions:
-   - `Chat.Create`
-   - `Chat.ReadWrite.All`
-   - `User.Read.All`
-
-3. **Create SharePoint list** using schema in `sharepoint/`
-
-4. **Import solution** to Power Automate and configure environment variables
-
-5. **Add users** to SharePoint list and run the flow
+| Parameter | Description | Example |
+|-----------|-------------|---------|
+| Campaign Week | Card week (1-4) | `1` |
+| User Type | `Licensed` or `NonLicensed` | `Licensed` |
+| Tenant ID | Your Azure AD tenant ID | `xxxxxxxx-xxxx-...` |
+| Client ID | App registration client ID | `xxxxxxxx-xxxx-...` |
+| Client Secret | App registration secret | `your-secret` |
+| Target User UPN | Email of recipient | `user@contoso.com` |
 
 ## Requirements
 
 | Requirement | Details |
 |-------------|---------|
-| License | Power Automate Premium ($15/user/month) |
-| Permissions | Global Admin or Application Admin (for app registration) |
-| SharePoint | Site with list creation permissions |
-| Azure AD | Ability to create app registrations |
+| License | Power Automate Premium (for HTTP connector) |
+| Permissions | Application Admin (for app registration) |
+| Azure AD | App registration with Graph API permissions |
 
 ## Campaign Cards
 
-The flow includes embedded Adaptive Cards for:
+The flow includes 7 embedded Adaptive Cards:
 
 ### Licensed Users (M365 Copilot)
+
 | Week | Card Theme |
 |------|------------|
 | 1 | GPT-5 Introduction |
@@ -64,6 +75,7 @@ The flow includes embedded Adaptive Cards for:
 | 4 | Prompt Coach |
 
 ### Non-Licensed Users (Copilot Chat Web)
+
 | Week | Card Theme |
 |------|------------|
 | 1 | GPT-5 in Copilot Web |
@@ -72,60 +84,49 @@ The flow includes embedded Adaptive Cards for:
 
 ## Architecture
 
-```
+```text
 ┌─────────────────┐     ┌──────────────────┐     ┌─────────────────┐
-│  SharePoint     │────▶│  Power Automate  │────▶│  Microsoft      │
-│  Users List     │     │  Cloud Flow      │     │  Graph API      │
+│  Power Automate │────▶│  Microsoft       │────▶│  Teams 1:1      │
+│  Manual Trigger │     │  Graph API       │     │  Chat Message   │
 └─────────────────┘     └──────────────────┘     └─────────────────┘
-                               │                         │
-                               │                         ▼
-                               │                 ┌─────────────────┐
-                               │                 │  Teams 1:1      │
-                               │                 │  Chat Messages  │
-                               │                 └─────────────────┘
-                               ▼
-                        ┌──────────────────┐
-                        │  SharePoint      │
-                        │  Status Updates  │
-                        └──────────────────┘
+        │                       │
+        │                       ▼
+        ▼               ┌─────────────────┐
+ ┌──────────────┐       │  Adaptive Card  │
+ │ User Inputs: │       │  Delivered to   │
+ │ - Week       │       │  Target User    │
+ │ - UserType   │       └─────────────────┘
+ │ - Tenant ID  │
+ │ - Client ID  │
+ │ - Secret     │
+ │ - User UPN   │
+ └──────────────┘
 ```
 
 ## Flow Logic
 
-1. **Trigger**: Manual button with parameters (Week, UserType, TestMode)
-2. **Get Token**: OAuth to Microsoft Graph using app credentials
-3. **Select Card**: Choose Adaptive Card based on Week + UserType
-4. **Get Users**: Query SharePoint for users with Status = "Pending"
-5. **For Each User**:
-   - Create 1:1 chat via Graph API
-   - Send Adaptive Card message
-   - Update SharePoint with result (Sent/Failed)
-6. **Return Summary**: Success and failure counts
+1. **Trigger**: Manual button with input parameters
+2. **Select Card**: Choose Adaptive Card based on UserType + Week
+3. **Get Token**: OAuth to Microsoft Graph using app credentials
+4. **Create Chat**: Create 1:1 chat with target user via Graph API
+5. **Send Card**: Post Adaptive Card message to the chat
+6. **Return Response**: Success status with recipient details
 
 ## Customization
 
 ### Adding New Cards
 
-Edit `flows/SendCopilotPromotionCards.json` to add new switch cases:
+1. Export the flow from Power Automate
+2. Edit the definition to add new switch cases in the `Select_Adaptive_Card` action
+3. Re-import the modified flow
 
-```json
-"NewCard_Week5": {
-  "case": "Licensed_Week5",
-  "actions": {
-    "Set_Card_Licensed_Week5": {
-      "type": "SetVariable",
-      "inputs": {
-        "name": "AdaptiveCardJson",
-        "value": "{ your card JSON here }"
-      }
-    }
-  }
-}
-```
+### Bulk Sending
 
-### Changing SharePoint Columns
+The current flow sends to one user at a time. For bulk sending options:
 
-Update `sharepoint/CopilotPromotionUsers-ListSchema.json` and recreate the list.
+- **Option A**: Run the flow multiple times with different UPNs
+- **Option B**: Modify the flow to read from a SharePoint list (see `sharepoint/` folder for schema)
+- **Option C**: Use the original PowerShell scripts in the `instructions/` folder
 
 ## Troubleshooting
 

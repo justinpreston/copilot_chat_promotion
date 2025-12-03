@@ -93,40 +93,30 @@ The flow needs application permissions to send messages via Microsoft Graph API.
 
 5. Set default value for **Status** to `Pending`
 
-### Step 5: Import the Power Automate Solution
+### Step 5: Import the Power Automate Flow
 
-1. Go to [Power Automate](https://make.powerautomate.com)
+1. Download `CopilotChatPromotion_1_0_0.zip` from the [GitHub Releases](https://github.com/luishdemetrio/copilot_chat_promotion/releases) page
+   - Or find it in the `power-automate-solution/` folder if you cloned the repo
 
-2. Click **Solutions** in the left navigation
+2. Go to [Power Automate](https://make.powerautomate.com)
 
-3. Click **Import solution** → **Browse**
+3. Click **My flows** in the left navigation
 
-4. Select `CopilotChatPromotion_1_0_0.zip`
+4. Click **Import** → **Import Package (Legacy)**
 
-5. Click **Next**
+5. Click **Upload** and select `CopilotChatPromotion_1_0_0.zip`
 
-6. Configure environment variables:
+6. Under **Review Package Content**, click **Import**
 
-   | Variable | Value |
-   |----------|-------|
-   | Tenant ID | Your tenant ID from Step 1 |
-   | App Client ID | Your client ID from Step 1 |
-   | App Client Secret | Your secret from Step 3 |
-   | SharePoint Site URL | Your site URL from Step 4 |
-
-7. Configure connections:
-   - **SharePoint**: Create new or select existing connection
-   - Sign in with an account that has access to the SharePoint site
-
-8. Click **Import**
+7. Wait for the import to complete - you'll see "Send Copilot Promotion Cards" in your flows
 
 ### Step 6: Verify the Flow
 
-1. In the imported solution, find **Send Copilot Promotion Cards** flow
+1. In **My flows**, find **Send Copilot Promotion Cards**
 
 2. Click to open, then click **Edit**
 
-3. Verify all connections show green checkmarks
+3. Verify all actions are properly configured (no red error icons)
 
 4. Click **Save** if you made any changes
 
@@ -153,25 +143,33 @@ The flow needs application permissions to send messages via Microsoft Graph API.
 
 3. Click **Run** (play button)
 
-4. Configure the run:
+4. Fill in the required parameters:
 
-   | Parameter | Description |
-   |-----------|-------------|
-   | Campaign Week | Which week's card to send (1-4) |
-   | User Type | `Licensed` or `NonLicensed` |
-   | Test Mode | If `true`, only sends to first 5 users |
+   | Parameter | Description | Example |
+   |-----------|-------------|---------|
+   | Campaign Week | Which week's card to send (1-4) | `1` |
+   | User Type | `Licensed` or `NonLicensed` | `Licensed` |
+   | Tenant ID | Your Azure AD tenant ID from Step 1 | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` |
+   | Client ID | App registration client ID from Step 1 | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` |
+   | Client Secret | App registration secret from Step 3 | `your-secret-value` |
+   | Target User UPN | Email of user to send card to | `user@contoso.com` |
 
 5. Click **Run flow**
 
+> **Note**: This flow sends to one user at a time. For bulk sending, you can modify the flow to loop through a SharePoint list or Excel file, or run the flow multiple times with different UPNs.
+
 ### Monitor Progress
 
-1. Click on the running flow to see real-time progress
+1. After clicking **Run flow**, you'll see the flow run in the run history
 
-2. Check SharePoint list for updated statuses:
-   - `Sent` = Message delivered successfully
-   - `Failed` = Error occurred (check ErrorMessage column)
+2. Click on the run to see step-by-step progress:
+   - ✅ Green checkmarks = successful steps
+   - ❌ Red X = failed step (click to see error details)
 
-3. View run summary at the end with success/failure counts
+3. A successful run will show a response with:
+   - `status`: "Success"
+   - `recipient`: The user UPN
+   - `cardType`: Which card was sent (e.g., "Licensed_Week1")
 
 ---
 
